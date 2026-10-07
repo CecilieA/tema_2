@@ -1,0 +1,421 @@
+/* -------------------------
+   GENERELT
+------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f4efe4;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* -------------------------
+   NAVIGATION
+------------------------- */
+
+nav {
+    height: 65px;
+    background-color: #176080;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+}
+
+#logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* -------------------------
+   HERO
+------------------------- */
+
+section:first-of-type {
+    position: relative;
+    width: 100%;
+}
+
+section:first-of-type img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+}
+
+h1 {
+    position: absolute;
+
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+
+    margin: 0;
+
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+
+    color: #176080;
+
+    -webkit-text-stroke: 1px white;
+
+    letter-spacing: 2px;
+}
+
+
+/* -------------------------
+   KØB BILLET KNAP UNDER HERO
+------------------------- */
+
+body > button {
+    display: block;
+
+    width: 85px;
+    height: 85px;
+
+    margin: -45px auto 50px;
+
+    position: relative;
+    z-index: 5;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #08652e;
+    color: white;
+
+    cursor: pointer;
+}
+
+body > button:hover {
+    transform: scale(1.05);
+}
+
+
+/* -------------------------
+   ALLE SEKTIONER
+------------------------- */
+
+section:not(:first-of-type) {
+    padding: 70px 8%;
+}
+
+article {
+    position: relative;
+}
+
+
+/* -------------------------
+   FØRSTE INDHOLDSBOKS
+------------------------- */
+
+section:nth-of-type(2) article {
+    width: 75%;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 45% 55%;
+
+    align-items: center;
+
+    background-color: #176080;
+
+    color: white;
+}
+
+section:nth-of-type(2) article img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    padding: 20px;
+}
+
+section:nth-of-type(2) article p {
+    padding: 30px;
+
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+/* BLÅ CIRKEL BAG BOKSEN */
+
+section:nth-of-type(2) article::before {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background-color: #176080;
+
+    left: -65px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: -1;
+}
+
+
+/* -------------------------
+   ANDEN SEKTION
+------------------------- */
+
+section:nth-of-type(3) article {
+    display: grid;
+
+    grid-template-columns: 50% 40%;
+
+    gap: 10%;
+
+    align-items: center;
+
+    width: 85%;
+
+    margin: auto;
+}
+
+section:nth-of-type(3) article p {
+    background-color: #dedede;
+
+    padding: 35px;
+
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+section:nth-of-type(3) article img {
+    width: 100%;
+    max-width: 350px;
+
+    justify-self: center;
+}
+
+
+/* -------------------------
+   SIDSTE SEKTION
+------------------------- */
+
+section:nth-of-type(4) {
+    background-color: #dedede;
+
+    margin-top: 50px;
+}
+
+section:nth-of-type(4) article {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 0.6fr;
+
+    gap: 40px;
+
+    align-items: start;
+
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+
+/* BILLEDER */
+
+section:nth-of-type(4) article img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+}
+
+
+/* KNAP */
+
+section:nth-of-type(4) button {
+    width: 85px;
+    height: 85px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #08652e;
+
+    color: white;
+
+    cursor: pointer;
+
+    margin: auto;
+}
+
+
+/* ÅBNINGSTIDER */
+
+section:nth-of-type(4) p {
+    background-color: #08652e;
+
+    color: white;
+
+    padding: 20px;
+
+    text-align: center;
+
+    line-height: 1.6;
+}
+
+
+/* -------------------------
+   GRØNNE DEKORATIVE FORMER
+------------------------- */
+
+section:nth-of-type(3)::before {
+    content: "";
+
+    display: block;
+
+    width: 120px;
+    height: 120px;
+
+    background-color: #6eb87d;
+
+    position: absolute;
+
+    left: 10%;
+    transform: rotate(45deg);
+
+    z-index: -1;
+}
+
+
+/* -------------------------
+   FOOTER
+------------------------- */
+
+footer {
+    background-color: #176080;
+
+    color: white;
+
+    padding: 45px 8%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: start;
+}
+
+footer p {
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+}
+
+
+/* SOCIALE MEDIER */
+
+footer .nav-links {
+    display: flex;
+
+    gap: 15px;
+}
+
+footer .nav-links img {
+    width: 30px;
+    height: 30px;
+
+    object-fit: contain;
+}
+
+
+/* KORT */
+
+footer > img {
+    width: 200px;
+
+    margin-top: 15px;
+}
+
+
+/* -------------------------
+   RESPONSIVE
+------------------------- */
+
+@media (max-width: 800px) {
+
+    nav {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    section:first-of-type img {
+        height: 300px;
+    }
+
+    section:nth-of-type(2) article,
+    section:nth-of-type(3) article,
+    section:nth-of-type(4) article {
+        display: block;
+
+        width: 100%;
+    }
+
+    section:nth-of-type(2) article img,
+    section:nth-of-type(3) article img,
+    section:nth-of-type(4) article img {
+        margin-bottom: 20px;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+}
