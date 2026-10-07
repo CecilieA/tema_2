@@ -1,81 +1,105 @@
-/* -------------------------
+/* =========================================
    GENERELT
-------------------------- */
+========================================= */
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    background-color: #f4efe4;
     font-family: Arial, Helvetica, sans-serif;
-    color: #111;
+    background-color: #f3eee3;
+    color: #111111;
 }
 
 img {
+    display: block;
     max-width: 100%;
 }
 
 
-/* -------------------------
+/* =========================================
    NAVIGATION
-------------------------- */
+========================================= */
 
 nav {
-    height: 65px;
-    background-color: #176080;
+    width: 100%;
+    height: 70px;
+
+    background-color: #17617f;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
-    padding: 0 40px;
+    padding: 0 5%;
 }
+
+
+/* Logo */
 
 #logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
+    display: block;
 }
 
-.nav-links {
+#logo img {
+    width: 65px;
+    height: auto;
+}
+
+
+/* Navigation links */
+
+nav .nav-links {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 35px;
 }
 
-.nav-links a {
+nav .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+
+    font-size: 14px;
 }
 
-.nav-links a:hover {
+nav .nav-links a:hover {
     text-decoration: underline;
 }
 
 
-/* -------------------------
+/* =========================================
    HERO
-------------------------- */
+========================================= */
 
 section:first-of-type {
     position: relative;
+
     width: 100%;
+    padding: 0;
 }
 
-section:first-of-type img {
+section:first-of-type > img {
     width: 100%;
-    height: 430px;
+    height: 500px;
+
     object-fit: cover;
 }
+
+
+/* Overskrift oven på hero */
 
 h1 {
     position: absolute;
 
-    top: 35px;
+    top: 40px;
     left: 50%;
+
     transform: translateX(-50%);
 
     width: 100%;
@@ -83,216 +107,332 @@ h1 {
     margin: 0;
 
     text-align: center;
-    font-size: 4rem;
+
+    font-size: clamp(3rem, 6vw, 6rem);
     font-weight: bold;
 
-    color: #176080;
+    letter-spacing: 3px;
+
+    color: #17617f;
 
     -webkit-text-stroke: 1px white;
-
-    letter-spacing: 2px;
 }
 
 
-/* -------------------------
-   KØB BILLET KNAP UNDER HERO
-------------------------- */
+/* =========================================
+   FØRSTE KØB BILLET KNAP
+========================================= */
 
 body > button {
     display: block;
 
-    width: 85px;
-    height: 85px;
+    width: 90px;
+    height: 90px;
 
-    margin: -45px auto 50px;
+    margin: -45px auto 80px;
 
     position: relative;
-    z-index: 5;
+    z-index: 10;
 
     border: none;
     border-radius: 50%;
 
-    background-color: #08652e;
+    background-color: #126632;
     color: white;
 
+    font-size: 13px;
+
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
 body > button:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 
-/* -------------------------
-   ALLE SEKTIONER
-------------------------- */
+/* =========================================
+   SEKTION 2
+   BLÅ BOKS MED BILLEDE + TEKST
+========================================= */
 
-section:not(:first-of-type) {
-    padding: 70px 8%;
+section:nth-of-type(2) {
+    padding: 60px 10% 110px;
 }
-
-article {
-    position: relative;
-}
-
-
-/* -------------------------
-   FØRSTE INDHOLDSBOKS
-------------------------- */
 
 section:nth-of-type(2) article {
-    width: 75%;
+    position: relative;
+
+    max-width: 900px;
+
     margin: auto;
 
     display: grid;
-    grid-template-columns: 45% 55%;
 
-    align-items: center;
+    grid-template-columns: 42% 58%;
 
-    background-color: #176080;
+    align-items: stretch;
+
+    background-color: #17617f;
 
     color: white;
 }
+
+
+/* Første billede */
 
 section:nth-of-type(2) article img {
     width: 100%;
     height: 100%;
+
+    min-height: 260px;
 
     object-fit: cover;
 
     padding: 20px;
 }
 
-section:nth-of-type(2) article p {
-    padding: 30px;
 
+/* Tekst */
+
+section:nth-of-type(2) article p {
     margin: 0;
 
-    font-size: 1rem;
+    padding: 35px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 16px;
     line-height: 1.5;
 }
 
 
-/* BLÅ CIRKEL BAG BOKSEN */
+/* Blå cirkel til venstre */
 
 section:nth-of-type(2) article::before {
     content: "";
 
     position: absolute;
 
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
 
-    border-radius: 50%;
-
-    background-color: #176080;
-
-    left: -65px;
+    left: -70px;
     top: 50%;
 
     transform: translateY(-50%);
+
+    background-color: #17617f;
+
+    border-radius: 50%;
 
     z-index: -1;
 }
 
 
-/* -------------------------
-   ANDEN SEKTION
-------------------------- */
+/* Grøn geometrisk form */
+
+section:nth-of-type(2) article::after {
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    left: 90px;
+    bottom: -55px;
+
+    background-color: #70b77c;
+
+    transform: rotate(45deg);
+
+    z-index: -1;
+}
+
+
+/* =========================================
+   SEKTION 3
+   GRÅ TEKST + BILLEDE
+========================================= */
+
+section:nth-of-type(3) {
+    position: relative;
+
+    padding: 100px 10%;
+}
 
 section:nth-of-type(3) article {
+    position: relative;
+
+    max-width: 950px;
+
+    margin: auto;
+
     display: grid;
 
-    grid-template-columns: 50% 40%;
+    grid-template-columns: 55% 35%;
 
     gap: 10%;
 
     align-items: center;
-
-    width: 85%;
-
-    margin: auto;
 }
+
+
+/* Tekstboks */
 
 section:nth-of-type(3) article p {
-    background-color: #dedede;
+    margin: 0;
 
-    padding: 35px;
+    padding: 40px;
 
-    font-size: 1rem;
+    background-color: #dddddd;
+
+    font-size: 16px;
     line-height: 1.5;
+
+    position: relative;
+    z-index: 2;
 }
+
+
+/* Billede */
 
 section:nth-of-type(3) article img {
     width: 100%;
-    max-width: 350px;
 
-    justify-self: center;
+    position: relative;
+    z-index: 2;
 }
 
 
-/* -------------------------
-   SIDSTE SEKTION
-------------------------- */
+/* Blå cirkel ved billede */
+
+section:nth-of-type(3) article::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -50px;
+    top: 50%;
+
+    background-color: #17617f;
+
+    border-radius: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   SEKTION 4
+   BILLEDER + ÅBNINGSTIDER
+========================================= */
 
 section:nth-of-type(4) {
-    background-color: #dedede;
+    position: relative;
 
     margin-top: 50px;
+
+    padding: 80px 8%;
+
+    background-color: #dedede;
 }
 
+
+/* Afrundede hjørner som i designet */
+
+section:nth-of-type(4)::before,
+section:nth-of-type(4)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    width: 60px;
+    height: 100%;
+
+    background-color: #dedede;
+}
+
+section:nth-of-type(4)::before {
+    left: 0;
+
+    border-radius: 0 40px 40px 0;
+}
+
+section:nth-of-type(4)::after {
+    right: 0;
+
+    border-radius: 40px 0 0 40px;
+}
+
+
 section:nth-of-type(4) article {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 0.6fr;
-
-    gap: 40px;
-
-    align-items: start;
+    position: relative;
+    z-index: 2;
 
     max-width: 1100px;
 
     margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 0.7fr;
+
+    gap: 30px;
+
+    align-items: start;
 }
 
 
-/* BILLEDER */
+/* De to billeder */
 
 section:nth-of-type(4) article img {
     width: 100%;
-    height: 200px;
+    height: 220px;
 
     object-fit: cover;
 }
 
 
-/* KNAP */
+/* Køb billet cirkel */
 
-section:nth-of-type(4) button {
-    width: 85px;
-    height: 85px;
+section:nth-of-type(4) article button {
+    width: 90px;
+    height: 90px;
+
+    justify-self: center;
 
     border: none;
     border-radius: 50%;
 
-    background-color: #08652e;
+    background-color: #126632;
 
     color: white;
 
     cursor: pointer;
-
-    margin: auto;
 }
 
 
-/* ÅBNINGSTIDER */
+/* Åbningstider */
 
-section:nth-of-type(4) p {
-    background-color: #08652e;
-
-    color: white;
+section:nth-of-type(4) article p {
+    margin: 0;
 
     padding: 20px;
+
+    background-color: #126632;
+
+    color: white;
 
     text-align: center;
 
@@ -300,64 +440,49 @@ section:nth-of-type(4) p {
 }
 
 
-/* -------------------------
-   GRØNNE DEKORATIVE FORMER
-------------------------- */
-
-section:nth-of-type(3)::before {
-    content: "";
-
-    display: block;
-
-    width: 120px;
-    height: 120px;
-
-    background-color: #6eb87d;
-
-    position: absolute;
-
-    left: 10%;
-    transform: rotate(45deg);
-
-    z-index: -1;
-}
-
-
-/* -------------------------
+/* =========================================
    FOOTER
-------------------------- */
+========================================= */
 
 footer {
-    background-color: #176080;
+    width: 100%;
+
+    background-color: #17617f;
 
     color: white;
 
-    padding: 45px 8%;
+    padding: 45px 6%;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 0.8fr 1fr 220px;
 
-    gap: 50px;
+    gap: 35px;
 
     align-items: start;
 }
 
+
+/* Footer tekst */
+
 footer p {
     margin: 0;
 
-    font-size: 0.9rem;
-
+    font-size: 14px;
     line-height: 1.6;
 }
 
 
-/* SOCIALE MEDIER */
+/* Sociale medier */
 
 footer .nav-links {
     display: flex;
 
-    gap: 15px;
+    gap: 12px;
+}
+
+footer .nav-links a {
+    display: block;
 }
 
 footer .nav-links img {
@@ -368,54 +493,115 @@ footer .nav-links img {
 }
 
 
-/* KORT */
+/* Kort */
 
 footer > img {
     width: 200px;
+    height: 130px;
 
-    margin-top: 15px;
+    object-fit: cover;
 }
 
 
-/* -------------------------
-   RESPONSIVE
-------------------------- */
+/* =========================================
+   RESPONSIVE - TABLET/MOBIL
+========================================= */
 
 @media (max-width: 800px) {
 
-    nav {
-        padding: 0 20px;
-    }
+    /* Navigation */
 
-    .nav-links {
+    nav {
+        height: auto;
+
+        padding: 15px 20px;
+
+        flex-direction: column;
+
         gap: 15px;
     }
 
+    nav .nav-links {
+        gap: 20px;
+    }
+
+
+    /* Hero */
+
+    section:first-of-type > img {
+        height: 350px;
+    }
+
     h1 {
-        font-size: 2.5rem;
+        top: 30px;
+
+        padding: 0 20px;
+
+        font-size: 2.7rem;
     }
 
-    section:first-of-type img {
-        height: 300px;
+
+    /* Første indholdssektion */
+
+    section:nth-of-type(2) {
+        padding: 50px 8%;
     }
 
-    section:nth-of-type(2) article,
-    section:nth-of-type(3) article,
+    section:nth-of-type(2) article {
+        grid-template-columns: 1fr;
+    }
+
+    section:nth-of-type(2) article::before,
+    section:nth-of-type(2) article::after {
+        display: none;
+    }
+
+
+    /* Anden indholdssektion */
+
+    section:nth-of-type(3) {
+        padding: 60px 8%;
+    }
+
+    section:nth-of-type(3) article {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    section:nth-of-type(3) article::after {
+        display: none;
+    }
+
+
+    /* Åbningstider */
+
     section:nth-of-type(4) article {
-        display: block;
-
-        width: 100%;
+        grid-template-columns: 1fr;
     }
 
-    section:nth-of-type(2) article img,
-    section:nth-of-type(3) article img,
     section:nth-of-type(4) article img {
-        margin-bottom: 20px;
+        height: auto;
+
+        margin-bottom: 10px;
     }
+
+    section:nth-of-type(4) article button {
+        margin: 10px auto;
+    }
+
+
+    /* Footer */
 
     footer {
         grid-template-columns: 1fr;
 
         gap: 30px;
+    }
+
+    footer > img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
     }
 }
