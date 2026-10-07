@@ -1,8 +1,22 @@
-/* =========================================
-   GENERELT
-========================================= */
+/* =====================================================
+   FORMA – FÆLLES CSS
+   Farver:
+   #1D8EB7 - blå
+   #6DB278 - grøn
+   #F2EDE3 - lys/beige
+   #1A5A7D - mørk blå
+   #11A229 - stærk grøn
+   #050505 - sort
+===================================================== */
+
+
+/* =====================================================
+   1. RESET / GENERELT
+===================================================== */
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -11,10 +25,9 @@ html {
 }
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f3eee3;
-    color: #111111;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #F2EDE3;
+    color: #050505;
 }
 
 img {
@@ -22,38 +35,58 @@ img {
     max-width: 100%;
 }
 
+p {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
 
-/* =========================================
-   NAVIGATION
-========================================= */
+h1,
+h2,
+h3 {
+    font-family: Helvetica, Arial, sans-serif;
+}
 
-nav {
-    width: 100%;
-    height: 70px;
-
-    background-color: #17617f;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 5%;
+a {
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 
-/* Logo */
+/* =====================================================
+   2. NAVIGATION
+   Bruges på ALLE sider
+===================================================== */
+
+nav {
+    width: 100%;
+    min-height: 75px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 6%;
+
+    background-color: #1A5A7D;
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* LOGO */
 
 #logo {
     display: block;
 }
 
 #logo img {
-    width: 65px;
+    width: 80px;
     height: auto;
 }
 
 
-/* Navigation links */
+/* NAVIGATION LINKS */
 
 nav .nav-links {
     display: flex;
@@ -62,74 +95,78 @@ nav .nav-links {
 }
 
 nav .nav-links a {
-    color: white;
+    color: #F2EDE3;
+
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.2s;
 }
 
 nav .nav-links a:hover {
-    text-decoration: underline;
+    color: #6DB278;
 }
 
 
-/* =========================================
-   HERO
-========================================= */
+/* =====================================================
+   3. FORSIDE – HERO
+===================================================== */
 
-section:first-of-type {
+body > section:first-of-type {
     position: relative;
-
-    width: 100%;
-    padding: 0;
 }
 
-section:first-of-type > img {
+
+/* Kun forsiden hvis section indeholder hero-billede */
+
+body > section:first-of-type > img[alt="hero"] {
     width: 100%;
-    height: 500px;
+    height: 520px;
 
     object-fit: cover;
 }
 
 
-/* Overskrift oven på hero */
+/* FORSIDE H1 */
 
-h1 {
+body > section:first-of-type > h1 {
     position: absolute;
 
-    top: 40px;
+    top: 60px;
     left: 50%;
 
     transform: translateX(-50%);
 
-    width: 100%;
-
-    margin: 0;
+    width: 90%;
 
     text-align: center;
 
-    font-size: clamp(3rem, 6vw, 6rem);
-    font-weight: bold;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 700;
+
+    line-height: 0.95;
 
     letter-spacing: 3px;
 
-    color: #17617f;
+    color: #6DB278;
 
-    -webkit-text-stroke: 1px white;
+    text-transform: uppercase;
 }
 
 
-/* =========================================
-   FØRSTE KØB BILLET KNAP
-========================================= */
+/* =====================================================
+   4. FORSIDE – FØRSTE KØB BILLET KNAP
+===================================================== */
 
 body > button {
     display: block;
 
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
 
-    margin: -45px auto 80px;
+    margin: -50px auto 60px;
 
     position: relative;
     z-index: 10;
@@ -137,10 +174,13 @@ body > button {
     border: none;
     border-radius: 50%;
 
-    background-color: #126632;
-    color: white;
+    background-color: #11A229;
+    color: #F2EDE3;
 
-    font-size: 13px;
+    font-family: Helvetica, Arial, sans-serif;
+
+    font-size: 14px;
+    font-weight: 600;
 
     cursor: pointer;
 
@@ -148,123 +188,24 @@ body > button {
 }
 
 body > button:hover {
-    transform: scale(1.08);
+    background-color: #1D8EB7;
+
+    transform: scale(1.07);
 }
 
 
-/* =========================================
-   SEKTION 2
-   BLÅ BOKS MED BILLEDE + TEKST
-========================================= */
+/* =====================================================
+   5. FORSIDE – SEKTION 2
+   BILLEDE VENSTRE / TEKST HØJRE
+===================================================== */
 
-section:nth-of-type(2) {
-    padding: 60px 10% 110px;
+body > section:nth-of-type(2) {
+    padding: 60px 8% 80px;
+
+    background-color: #F2EDE3;
 }
 
-section:nth-of-type(2) article {
-    position: relative;
-
-    max-width: 900px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: 42% 58%;
-
-    align-items: stretch;
-
-    background-color: #17617f;
-
-    color: white;
-}
-
-
-/* Første billede */
-
-section:nth-of-type(2) article img {
-    width: 100%;
-    height: 100%;
-
-    min-height: 260px;
-
-    object-fit: cover;
-
-    padding: 20px;
-}
-
-
-/* Tekst */
-
-section:nth-of-type(2) article p {
-    margin: 0;
-
-    padding: 35px;
-
-    display: flex;
-    align-items: center;
-
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-
-/* Blå cirkel til venstre */
-
-section:nth-of-type(2) article::before {
-    content: "";
-
-    position: absolute;
-
-    width: 140px;
-    height: 140px;
-
-    left: -70px;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    background-color: #17617f;
-
-    border-radius: 50%;
-
-    z-index: -1;
-}
-
-
-/* Grøn geometrisk form */
-
-section:nth-of-type(2) article::after {
-    content: "";
-
-    position: absolute;
-
-    width: 110px;
-    height: 110px;
-
-    left: 90px;
-    bottom: -55px;
-
-    background-color: #70b77c;
-
-    transform: rotate(45deg);
-
-    z-index: -1;
-}
-
-
-/* =========================================
-   SEKTION 3
-   GRÅ TEKST + BILLEDE
-========================================= */
-
-section:nth-of-type(3) {
-    position: relative;
-
-    padding: 100px 10%;
-}
-
-section:nth-of-type(3) article {
+body > section:nth-of-type(2) article {
     position: relative;
 
     max-width: 950px;
@@ -273,216 +214,249 @@ section:nth-of-type(3) article {
 
     display: grid;
 
-    grid-template-columns: 55% 35%;
-
-    gap: 10%;
+    grid-template-columns: 45% 55%;
 
     align-items: center;
 }
 
-
-/* Tekstboks */
-
-section:nth-of-type(3) article p {
-    margin: 0;
-
-    padding: 40px;
-
-    background-color: #dddddd;
-
-    font-size: 16px;
-    line-height: 1.5;
-
+body > section:nth-of-type(2) article img {
     position: relative;
     z-index: 2;
-}
 
-
-/* Billede */
-
-section:nth-of-type(3) article img {
     width: 100%;
+    height: 330px;
 
-    position: relative;
-    z-index: 2;
+    object-fit: cover;
+}
+
+body > section:nth-of-type(2) article p {
+    min-height: 270px;
+
+    padding: 45px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #1A5A7D;
+
+    color: #F2EDE3;
 }
 
 
-/* Blå cirkel ved billede */
+/* BLÅ CIRKEL */
 
-section:nth-of-type(3) article::after {
+body > section:nth-of-type(2) article::before {
     content: "";
 
     position: absolute;
 
-    width: 120px;
-    height: 120px;
+    left: -60px;
+    top: -40px;
 
-    right: -50px;
-    top: 50%;
-
-    background-color: #17617f;
+    width: 140px;
+    height: 140px;
 
     border-radius: 50%;
 
-    transform: translateY(-50%);
-
-    z-index: 1;
+    background-color: #1D8EB7;
 }
 
 
-/* =========================================
-   SEKTION 4
-   BILLEDER + ÅBNINGSTIDER
-========================================= */
+/* =====================================================
+   6. FORSIDE – SEKTION 3
+   TEKST VENSTRE / BILLEDE HØJRE
+===================================================== */
 
-section:nth-of-type(4) {
-    position: relative;
+body > section:nth-of-type(3) {
+    padding: 50px 8% 90px;
 
-    margin-top: 50px;
+    background-color: #F2EDE3;
+}
 
-    padding: 80px 8%;
+body > section:nth-of-type(3) article {
+    max-width: 1000px;
 
-    background-color: #dedede;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 55% 45%;
+
+    align-items: center;
+}
+
+body > section:nth-of-type(3) article p {
+    min-height: 370px;
+
+    padding: 50px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #F2EDE3;
+}
+
+body > section:nth-of-type(3) article img {
+    width: 100%;
+    height: 310px;
+
+    object-fit: cover;
 }
 
 
-/* Afrundede hjørner som i designet */
+/* =====================================================
+   7. FORSIDE – SEKTION 4
+   TO BILLEDER / ÅBNINGSTIDER
+===================================================== */
 
-section:nth-of-type(4)::before,
-section:nth-of-type(4)::after {
-    content: "";
+body > section:nth-of-type(4) {
+    padding: 60px 8% 100px;
 
-    position: absolute;
-
-    top: 0;
-
-    width: 60px;
-    height: 100%;
-
-    background-color: #dedede;
+    background-color: #F2EDE3;
 }
 
-section:nth-of-type(4)::before {
-    left: 0;
-
-    border-radius: 0 40px 40px 0;
-}
-
-section:nth-of-type(4)::after {
-    right: 0;
-
-    border-radius: 40px 0 0 40px;
-}
-
-
-section:nth-of-type(4) article {
-    position: relative;
-    z-index: 2;
-
+body > section:nth-of-type(4) article {
     max-width: 1100px;
 
     margin: auto;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr 0.7fr;
+    grid-template-columns: 1fr 160px 1fr;
 
-    gap: 30px;
+    column-gap: 45px;
+    row-gap: 15px;
 
-    align-items: start;
+    align-items: center;
 }
 
 
-/* De to billeder */
+/* VENSTRE BILLEDE */
 
-section:nth-of-type(4) article img {
+body > section:nth-of-type(4) img:first-of-type {
+    grid-column: 1;
+    grid-row: 1;
+
     width: 100%;
-    height: 220px;
+    height: 190px;
 
     object-fit: cover;
 }
 
 
-/* Køb billet cirkel */
+/* HØJRE BILLEDE */
 
-section:nth-of-type(4) article button {
-    width: 90px;
-    height: 90px;
+body > section:nth-of-type(4) img:nth-of-type(2) {
+    grid-column: 3;
+    grid-row: 1;
+
+    width: 100%;
+    height: 190px;
+
+    object-fit: cover;
+}
+
+
+/* KØB BILLET */
+
+body > section:nth-of-type(4) button {
+    grid-column: 2;
+    grid-row: 1 / 3;
 
     justify-self: center;
+
+    width: 100px;
+    height: 100px;
 
     border: none;
     border-radius: 50%;
 
-    background-color: #126632;
+    background-color: #11A229;
 
-    color: white;
+    color: #F2EDE3;
+
+    font-family: Helvetica, Arial, sans-serif;
+
+    font-size: 14px;
 
     cursor: pointer;
+
+    transition: 0.2s;
+}
+
+body > section:nth-of-type(4) button:hover {
+    background-color: #1D8EB7;
+
+    transform: scale(1.07);
 }
 
 
-/* Åbningstider */
+/* ÅBNINGSTIDER */
 
-section:nth-of-type(4) article p {
-    margin: 0;
+body > section:nth-of-type(4) p:first-of-type {
+    grid-column: 1;
+    grid-row: 2;
 
-    padding: 20px;
-
-    background-color: #126632;
-
-    color: white;
+    padding: 25px;
 
     text-align: center;
 
-    line-height: 1.6;
+    background-color: #1A5A7D;
+
+    color: #F2EDE3;
 }
 
 
-/* =========================================
-   FOOTER
-========================================= */
+/* ÅBENT 363 DAGE */
+
+body > section:nth-of-type(4) p:nth-of-type(2) {
+    grid-column: 3;
+    grid-row: 2;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background-color: #1A5A7D;
+
+    color: #F2EDE3;
+}
+
+
+/* =====================================================
+   8. FOOTER
+===================================================== */
 
 footer {
     width: 100%;
 
-    background-color: #17617f;
-
-    color: white;
-
-    padding: 45px 6%;
+    padding: 50px 6%;
 
     display: grid;
 
-    grid-template-columns: 1fr 0.8fr 1fr 220px;
+    grid-template-columns: 1fr 1fr 1fr;
 
-    gap: 35px;
+    gap: 50px;
 
-    align-items: start;
+    align-items: center;
+
+    background-color: #1A5A7D;
+
+    color: #F2EDE3;
+
+    border-top: 8px solid #1D8EB7;
 }
-
-
-/* Footer tekst */
 
 footer p {
-    margin: 0;
-
     font-size: 14px;
-    line-height: 1.6;
 }
-
-
-/* Sociale medier */
 
 footer .nav-links {
     display: flex;
 
-    gap: 12px;
-}
+    justify-content: center;
 
-footer .nav-links a {
-    display: block;
+    gap: 15px;
 }
 
 footer .nav-links img {
@@ -492,116 +466,770 @@ footer .nav-links img {
     object-fit: contain;
 }
 
-
-/* Kort */
-
 footer > img {
-    width: 200px;
-    height: 130px;
+    width: 180px;
 
-    object-fit: cover;
+    justify-self: end;
 }
 
 
-/* =========================================
-   RESPONSIVE - TABLET/MOBIL
-========================================= */
+/* =====================================================
+   9. OM OS – INTRO
+===================================================== */
+
+.omos-intro {
+    position: relative;
+
+    padding: 70px 8% 50px;
+
+    background-color: #F2EDE3;
+
+    overflow: hidden;
+}
+
+.omos-intro h1 {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 25px;
+
+    font-size: 48px;
+    font-weight: 700;
+
+    color: #050505;
+}
+
+.omos-intro p {
+    position: relative;
+    z-index: 2;
+
+    max-width: 750px;
+
+    font-size: 17px;
+
+    color: #050505;
+}
+
+
+/* GRØN STREG */
+
+.omos-intro::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 190px;
+    height: 25px;
+
+    background-color: #6DB278;
+}
+
+
+/* BLÅ FIRKANT */
+
+.omos-intro::after {
+    content: "";
+
+    position: absolute;
+
+    right: 8%;
+    bottom: 0;
+
+    width: 80px;
+    height: 200px;
+
+    background-color: #1D8EB7;
+
+    opacity: 0.3;
+}
+
+
+/* =====================================================
+   10. OM OS – TEAM
+===================================================== */
+
+.team {
+    position: relative;
+
+    padding: 40px 8% 100px;
+
+    background-color: #F2EDE3;
+
+    overflow: hidden;
+}
+
+.person {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 35px;
+
+    align-items: center;
+
+    margin-bottom: 35px;
+}
+
+.person img {
+    width: 180px;
+    height: 210px;
+
+    object-fit: cover;
+
+    border: 8px solid #1A5A7D;
+}
+
+.person:nth-of-type(2) img {
+    border-color: #6DB278;
+}
+
+.person:nth-of-type(3) img {
+    border-color: #1D8EB7;
+}
+
+
+/* PERSON TEKST */
+
+.person-text {
+    max-width: 550px;
+}
+
+.person-text h2 {
+    margin-bottom: 2px;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #050505;
+}
+
+.person-text h3 {
+    margin-bottom: 12px;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    color: #1A5A7D;
+}
+
+.person-text p {
+    font-size: 16px;
+
+    color: #050505;
+}
+
+
+/* DEKORATION */
+
+.team::before {
+    content: "";
+
+    position: absolute;
+
+    right: 10%;
+    top: 80px;
+
+    width: 35px;
+    height: 400px;
+
+    background-color: #6DB278;
+
+    opacity: 0.35;
+}
+
+.team::after {
+    content: "";
+
+    position: absolute;
+
+    right: -60px;
+    bottom: -60px;
+
+    width: 180px;
+    height: 180px;
+
+    background-color: #6DB278;
+
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   11. KONTAKT SIDE
+===================================================== */
+
+.kontakt {
+    position: relative;
+
+    min-height: 650px;
+
+    padding: 70px 8% 100px;
+
+    background-color: #F2EDE3;
+
+    overflow: hidden;
+}
+
+.kontakt h1 {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 30px;
+
+    font-size: 48px;
+    font-weight: 700;
+
+    color: #050505;
+}
+
+
+/* INTRO */
+
+.kontakt-intro {
+    position: relative;
+    z-index: 2;
+
+    max-width: 700px;
+
+    margin-bottom: 50px;
+}
+
+.kontakt-intro p {
+    margin-bottom: 20px;
+
+    font-size: 17px;
+}
+
+
+/* KONTAKT + KORT */
+
+.kontakt-info {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: end;
+}
+
+
+/* KONTAKT BOKS */
+
+.kontakt-details {
+    padding: 35px;
+
+    background-color: #1A5A7D;
+
+    color: #F2EDE3;
+}
+
+.kontakt-details h2 {
+    margin-bottom: 25px;
+
+    font-size: 25px;
+
+    text-transform: uppercase;
+}
+
+.kontakt-details p {
+    margin-bottom: 20px;
+
+    font-size: 15px;
+}
+
+.kontakt-details p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* KORT */
+
+.kontakt-kort {
+    position: relative;
+}
+
+.kontakt-kort img {
+    width: 100%;
+    height: 280px;
+
+    object-fit: cover;
+
+    border: 8px solid #1D8EB7;
+}
+
+
+/* SWISS DETALJER */
+
+.kontakt::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 200px;
+    height: 25px;
+
+    background-color: #6DB278;
+}
+
+.kontakt::after {
+    content: "";
+
+    position: absolute;
+
+    top: 160px;
+    right: 8%;
+
+    width: 120px;
+    height: 120px;
+
+    background-color: #1D8EB7;
+
+    opacity: 0.25;
+}
+
+.kontakt-kort::after {
+    content: "";
+
+    position: absolute;
+
+    right: -45px;
+    bottom: -45px;
+
+    width: 90px;
+    height: 90px;
+
+    background-color: #6DB278;
+
+    transform: rotate(45deg);
+
+    z-index: -1;
+}
+
+
+/* =====================================================
+   12. BILLET SIDE
+===================================================== */
+
+.billetter {
+    position: relative;
+
+    min-height: 650px;
+
+    padding: 70px 8% 120px;
+
+    background-color: #F2EDE3;
+
+    overflow: hidden;
+}
+
+.billetter h1 {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 15px;
+
+    font-size: 48px;
+    font-weight: 700;
+
+    color: #050505;
+
+    text-transform: uppercase;
+}
+
+
+/* INTRO */
+
+.billet-intro {
+    position: relative;
+    z-index: 2;
+
+    max-width: 550px;
+
+    margin-bottom: 50px;
+
+    font-size: 17px;
+}
+
+
+/* BILLETTER */
+
+.billet-container {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1000px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+
+/* BILLET KORT */
+
+.billet-kort {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 200px 1fr 130px;
+
+    gap: 30px;
+
+    align-items: center;
+
+    padding: 25px;
+
+    background-color: #1A5A7D;
+
+    color: #F2EDE3;
+}
+
+
+/* BILLET BILLEDE */
+
+.billet-billede {
+    width: 200px;
+    height: 140px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #F2EDE3;
+}
+
+.billet-billede img {
+    width: 150px;
+    height: 100px;
+
+    object-fit: contain;
+}
+
+
+/* BILLET TEKST */
+
+.billet-tekst h2 {
+    margin-bottom: 15px;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #F2EDE3;
+
+    text-transform: uppercase;
+}
+
+.billet-tekst p {
+    margin-bottom: 8px;
+
+    color: #F2EDE3;
+}
+
+.billet-tekst strong {
+    margin-left: 10px;
+
+    font-size: 18px;
+}
+
+
+/* KØB KNAP */
+
+.billet-kort button {
+    width: 120px;
+
+    padding: 14px 20px;
+
+    border: none;
+    border-radius: 0;
+
+    background-color: #1D8EB7;
+
+    color: #F2EDE3;
+
+    font-family: Helvetica, Arial, sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.billet-kort button:hover {
+    background-color: #11A229;
+
+    transform: translate(-4px, -4px);
+
+    box-shadow: 4px 4px 0 #050505;
+}
+
+
+/* FARVEDETALJER */
+
+.billet-kort:first-child {
+    border-left: 12px solid #6DB278;
+}
+
+.billet-kort:last-child {
+    border-left: 12px solid #1D8EB7;
+}
+
+
+/* SWISS STYLE DEKORATION */
+
+.billetter::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 220px;
+    height: 25px;
+
+    background-color: #6DB278;
+}
+
+.billetter::after {
+    content: "";
+
+    position: absolute;
+
+    right: -70px;
+    bottom: -70px;
+
+    width: 200px;
+    height: 200px;
+
+    background-color: #6DB278;
+
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   13. RESPONSIVE – TABLET/MOBIL
+===================================================== */
 
 @media (max-width: 800px) {
 
-    /* Navigation */
+    /* NAV */
 
     nav {
-        height: auto;
-
-        padding: 15px 20px;
-
         flex-direction: column;
 
-        gap: 15px;
+        gap: 20px;
+
+        padding: 20px;
     }
 
     nav .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
         gap: 20px;
     }
 
 
-    /* Hero */
+    /* FORSIDE HERO */
 
-    section:first-of-type > img {
-        height: 350px;
+    body > section:first-of-type > img[alt="hero"] {
+        height: 380px;
     }
 
-    h1 {
-        top: 30px;
+    body > section:first-of-type > h1 {
+        top: 40px;
 
-        padding: 0 20px;
-
-        font-size: 2.7rem;
+        font-size: 3rem;
     }
 
 
-    /* Første indholdssektion */
+    /* FORSIDE SEKTIONER */
 
-    section:nth-of-type(2) {
-        padding: 50px 8%;
-    }
-
-    section:nth-of-type(2) article {
+    body > section:nth-of-type(2) article,
+    body > section:nth-of-type(3) article {
         grid-template-columns: 1fr;
     }
 
-    section:nth-of-type(2) article::before,
-    section:nth-of-type(2) article::after {
-        display: none;
+    body > section:nth-of-type(2) article img,
+    body > section:nth-of-type(3) article img {
+        height: 250px;
+    }
+
+    body > section:nth-of-type(2) article p,
+    body > section:nth-of-type(3) article p {
+        min-height: auto;
+
+        padding: 30px;
     }
 
 
-    /* Anden indholdssektion */
+    /* FORSIDE SIDSTE SEKTION */
 
-    section:nth-of-type(3) {
-        padding: 60px 8%;
+    body > section:nth-of-type(4) article {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
     }
 
-    section:nth-of-type(3) article {
+    body > section:nth-of-type(4) img:first-of-type,
+    body > section:nth-of-type(4) img:nth-of-type(2),
+    body > section:nth-of-type(4) button,
+    body > section:nth-of-type(4) p:first-of-type,
+    body > section:nth-of-type(4) p:nth-of-type(2) {
+        grid-column: 1;
+
+        grid-row: auto;
+    }
+
+
+    /* OM OS */
+
+    .omos-intro {
+        padding: 50px 6%;
+    }
+
+    .omos-intro h1 {
+        font-size: 38px;
+    }
+
+    .team {
+        padding: 30px 6% 70px;
+    }
+
+    .person {
+        grid-template-columns: 130px 1fr;
+
+        gap: 20px;
+    }
+
+    .person img {
+        width: 130px;
+        height: 160px;
+
+        border-width: 5px;
+    }
+
+
+    /* KONTAKT */
+
+    .kontakt {
+        padding: 50px 6% 70px;
+    }
+
+    .kontakt h1 {
+        font-size: 38px;
+    }
+
+    .kontakt-info {
         grid-template-columns: 1fr;
 
         gap: 30px;
     }
 
-    section:nth-of-type(3) article::after {
-        display: none;
+
+    /* BILLETTER */
+
+    .billetter {
+        padding: 50px 6% 80px;
     }
 
+    .billetter h1 {
+        font-size: 38px;
+    }
 
-    /* Åbningstider */
-
-    section:nth-of-type(4) article {
+    .billet-kort {
         grid-template-columns: 1fr;
+
+        gap: 20px;
     }
 
-    section:nth-of-type(4) article img {
-        height: auto;
-
-        margin-bottom: 10px;
+    .billet-billede {
+        width: 100%;
     }
 
-    section:nth-of-type(4) article button {
-        margin: 10px auto;
+    .billet-kort button {
+        width: 100%;
     }
 
 
-    /* Footer */
+    /* FOOTER */
 
     footer {
         grid-template-columns: 1fr;
 
-        gap: 30px;
+        text-align: center;
     }
 
     footer > img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
+        justify-self: center;
+    }
+}
+
+
+/* =====================================================
+   14. LILLE MOBIL
+===================================================== */
+
+@media (max-width: 500px) {
+
+    nav .nav-links {
+        gap: 12px;
+    }
+
+    nav .nav-links a {
+        font-size: 13px;
+    }
+
+    #logo img {
+        width: 65px;
+    }
+
+
+    .omos-intro h1,
+    .kontakt h1,
+    .billetter h1 {
+        font-size: 32px;
+    }
+
+
+    .person {
+        grid-template-columns: 1fr;
+    }
+
+    .person img {
+        width: 160px;
+        height: 190px;
+    }
+
+
+    .kontakt-kort img {
+        height: 220px;
     }
 }

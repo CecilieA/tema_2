@@ -1,34 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
+
 <head>
     <meta charset="UTF-8">
-    <title>Billet</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Billetter | FORMA</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
 <nav>
-    <a href="#" id="logo">
-        <img src="images/logo.png" alt="forma logo">
+
+    <a href="index.html" id="logo">
+        <img src="images/logo.png" alt="FORMA logo">
     </a>
 
     <div class="nav-links">
-        <a href="#">Billet</a>
-        <a href="#">Kontakt</a>
-        <a href="#">Om os</a>
+        <a href="index.html">Forside</a>
+        <a href="billet.html">Billet</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="omos.html">Om os</a>
     </div>
+
 </nav>
 
-<section>
-    <img src="images/enekltbillet.png" alt="enkeltbillet">
-    <p>Enkeltbillet<br>
-    Almindelig billet 100,-<br>
-    Studerende 60,-</p>
-</section>
 
-<section>
-    <img src="images/gruppebillet.png" alt="gruppebillet">
-    <p>Stor gruppe 8 personer 320,-</p>
-</section>
+<main>
+
+    <section class="billetter">
+
+        <h1>Billetter</h1>
+
+        <p class="billet-intro">
+            Vælg den billet, der passer bedst til dit besøg.
+            Studerende får selvfølgelig studierabat.
+        </p>
+
+
+        <div class="billet-container">
+
+            <!-- ENKELTBILLET -->
+
+            <article class="billet-kort">
+
+                <div class="billet-billede">
+                    <img src="images/enekltbillet.png"
+                         alt="Enkeltbillet">
+                </div>
+
+                <div class="billet-tekst">
+
+                    <h2>Enkeltbillet</h2>
+
+                    <p>
+                        Almindelig billet
+                        <strong>100,-</strong>
+                    </p>
+
+                    <p>
+                        Studerende
+                        <strong>60,-</strong>
+                    </p>
+
+                </div>
+
+                <button type="button">
+                    Køb
+                </button>
+
+            </article>
+
+
+            <!-- GRUPPEBILLET -->
+
+            <article class="billet-kort">
+
+                <div class="billet-billede">
+                    <img src="images/gruppebillet.png"
+                         alt="Gruppebillet">
+                </div>
+
+                <div class="billet-tekst">
+
+                    <h2>Gruppebillet</h2>
+
+                    <p>
+                        Stor gruppe – 8 personer
+                        <strong>320,-</strong>
+                    </p>
+
+                </div>
+
+                <button type="button">
+                    Køb
+                </button>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
 </body>
+
 </html>
